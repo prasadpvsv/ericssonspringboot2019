@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>MongoDB/Spring Boot</title>
+        <style>
+            table
+            {
+              width:60%;
+              margin-left:20%;
+            }
+            td
+            {
+            width:25%;
+            
+            
+            }
+            table, th, td {
+               border: 1px solid black;
+               border-spacing: 0px;
+            }
+            th, td {
+                padding: 10px;
+            }
+            form
+            {
+             width:50%;
+              margin-left:20%;
+            }
+            input,textarea
+            {
+            width:20%;
+            margin-bottom:3%;
+            
+            }
+            
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Flight Code</th>
+                    <th>Service Provider Name</th>
+                    <th>Capacity</th>
+                    <th>Flight Class</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="flight : ${flightList}">
+                    <td th:text="${flight.flightCode}"></td>
+                    <td th:text="${flight.serviceProviderName}"></td>
+                    <td th:text="${flight.capacity}"></td>
+                    <td th:text="${flight.flightClass}"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <h2>Add Flight</h2>
+        <form action="/addFlight" method="POST">
+           <input type="text" id="flightCode" name="flightCode" placeholder="Flight Code"/><br />
+           <input type="text" id="serviceProviderName" name="serviceProviderName" placeholder="Service Provider"/><br />
+           <input type="number" id="capacity" name="capacity" placeholder="Capacity"/><br />
+        <input type="text" id="flightClass" name="flightClass" placeholder="Flight Class"/><br />
+
+            <input type="submit" />
+        </form>
+      
+    </body>
+</html>
